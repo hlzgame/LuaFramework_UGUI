@@ -32,6 +32,9 @@ function PromptCtrl.OnCreate(obj)
 	transform = obj.transform;
 
 	panel = transform:GetComponent('UIPanel');
+    --[[LuaFramework会给每个界面添加名为LuaBehaviour的组件,
+    它拥有用于添加按钮监听的AddClick方法,相关代码如下,与UIEvent的AddButtonClick方法相似。
+    --]]
 	prompt = transform:GetComponent('LuaBehaviour');
 	logWarn("Start lua--->>"..gameObject.name);
 
