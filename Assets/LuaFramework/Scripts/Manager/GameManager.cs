@@ -231,8 +231,11 @@ namespace LuaFramework {
         }
 
         void OnInitialize() {
+            //走 Main.lua
             LuaManager.InitStart();
+            Debugger.Log("Logic/Game--->>>" + testObj1.ToString());
             LuaManager.DoFile("Logic/Game");         //加载游戏
+            Debugger.Log("Logic/Network--->>>" + testObj1.ToString());
             LuaManager.DoFile("Logic/Network");      //加载网络
             NetManager.OnInit();                     //初始化网络
             Util.CallMethod("Game", "OnInitOK");     //初始化完成
