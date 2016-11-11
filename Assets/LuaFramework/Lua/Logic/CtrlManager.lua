@@ -32,3 +32,26 @@ end
 function CtrlManager.Close()
 	logWarn('CtrlManager.Close---->>>');
 end
+
+function CtrlManager.openPanel(ctrlName)
+	local panelCtrl = this.GetCtrl(ctrlName)
+	if panelCtrl ~= nil then
+		panelCtrl.Awake()
+	else
+		local panelCtrl = require("Controller/"..ctrlName..".lua"):new()
+		this.AddCtrl(ctrlName, panelCtrl)
+		if not panelCtrl then
+			logError("Do not create: " ..ctrlName.."Ctrl!")
+		else
+			panelCtrl:Awake()
+		end
+	end
+	
+	return panelCtrl
+end
+
+function CtrlManager.closePanel(ctrlName)
+	if not ctrlList[ctrlName] then logError("Not panel:"..ctrlName.."Ctrl!") end
+	ctrlList[ctrlName].Close()
+	this.RemoveCtrl(ctrlName)
+end

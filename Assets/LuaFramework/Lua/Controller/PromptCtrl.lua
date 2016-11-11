@@ -59,6 +59,29 @@ function PromptCtrl.InitPanel(objs)
 	end
 end
 
+--初始化面板--
+-- function PromptCtrl:InitPanel()
+--     self.panel.depth = 1    --设置纵深--
+--     local parent = self.promptPanel.gridParent
+--     local itemPrefab = self.prompt:LoadAsset('PromptItem')
+--     for i = 1, 100 do
+--         local go = newObject(itemPrefab)
+--         go.name = tostring(i)
+--         go.transform.parent = parent
+--         go.transform.localScale = Vector3.one
+--         go.transform.localPosition = Vector3.zero
+--         self.prompt:AddClick(go, self.OnItemClick)
+
+--         local goo = go.transform:FindChild('Label')
+--         goo:GetComponent('UILabel').text = i
+--     end
+--     local grid = parent:GetComponent('UIGrid')
+--     grid:Reposition()
+--     grid.repositionNow = true
+--     parent:GetComponent('WrapGrid'):InitGrid()
+-- end
+
+
 --滚动项单击--
 function PromptCtrl.OnItemClick(go)
     log(go.name);
