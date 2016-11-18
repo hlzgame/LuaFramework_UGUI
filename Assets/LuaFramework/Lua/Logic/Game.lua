@@ -39,15 +39,16 @@ function Game.OnInitOK()
     --注册LuaView--
     this.InitViewPanels();
 
-    this.test_class_func();
-    this.test_pblua_func();
-    this.test_cjson_func();
-    this.test_pbc_func();
-    this.test_lpeg_func();
-    this.test_sproto_func();
-    coroutine.start(this.test_coroutine);
+    -- this.test_pblua_func();
+    -- this.test_cjson_func();
+    -- this.test_pbc_func();
+    -- this.test_lpeg_func();
+    -- this.test_sproto_func();
+    -- coroutine.start(this.test_coroutine);
 
+    --初始化 控制器管理
     CtrlManager.Init();
+    --获得提示管理器的实例
     local ctrl = CtrlManager.GetCtrl(CtrlNames.Prompt);
     if ctrl ~= nil and AppConst.ExampleMode == 1 then
         ctrl:Awake();
@@ -56,16 +57,16 @@ function Game.OnInitOK()
     logWarn('LuaFramework InitOK--->>>');
 end
 
---测试协同--
-function Game.test_coroutine()    
-    logWarn("1111");
-    coroutine.wait(1);	
-    logWarn("2222");
+-- --测试协同--
+-- function Game.test_coroutine()    
+--     logWarn("1111");
+--     coroutine.wait(1);	
+--     logWarn("2222");
 	
-    local www = WWW("http://bbs.ulua.org/readme.txt");
-    coroutine.www(www);
-    logWarn(www.text);    	
-end
+--     local www = WWW("http://bbs.ulua.org/readme.txt");
+--     coroutine.www(www);
+--     logWarn(www.text);    	
+-- end
 
 --测试sproto--
 function Game.test_sproto_func()
@@ -123,92 +124,6 @@ function Game.test_sproto_func()
     print_r(addr)
 end
 
---测试lpeg--
-function Game.test_lpeg_func()
-	logWarn("test_lpeg_func-------->>");
-	-- matches a word followed by end-of-string
-	local p = lpeg.R"az"^1 * -1
-
-	print(p:match("hello"))        --> 6
-	print(lpeg.match(p, "hello"))  --> 6
-	print(p:match("1 hello"))      --> nil
-end
-
---测试lua类--
-function Game.test_class_func()
-    LuaClass:New(10, 20):test();
-end
-
---测试pblua--
-function Game.test_pblua_func()
-    local login = login_pb.LoginRequest();
-    login.id = 2000;
-    login.name = 'game';
-    login.email = 'jarjin@163.com';
-    
-    local msg = login:SerializeToString();
-    LuaHelper.OnCallLuaFunc(msg, this.OnPbluaCall);
-end
-
---pblua callback--
-function Game.OnPbluaCall(data)
-    local msg = login_pb.LoginRequest();
-    msg:ParseFromString(data);
-    print(msg);
-    print(msg.id..' '..msg.name);
-end
-
---测试pbc--
-function Game.test_pbc_func()
-    local path = Util.DataPath.."lua/3rd/pbc/addressbook.pb";
-    log('io.open--->>>'..path);
-
-    local addr = io.open(path, "rb")
-    local buffer = addr:read "*a"
-    addr:close()
-    protobuf.register(buffer)
-
-    local addressbook = {
-        name = "Alice",
-        id = 12345,
-        phone = {
-            { number = "1301234567" },
-            { number = "87654321", type = "WORK" },
-        }
-    }
-    local code = protobuf.encode("tutorial.Person", addressbook)
-    LuaHelper.OnCallLuaFunc(code, this.OnPbcCall)
-end
-
---pbc callback--
-function Game.OnPbcCall(data)
-    local path = Util.DataPath.."lua/3rd/pbc/addressbook.pb";
-
-    local addr = io.open(path, "rb")
-    local buffer = addr:read "*a"
-    addr:close()
-    protobuf.register(buffer)
-    local decode = protobuf.decode("tutorial.Person" , data)
-
-    print(decode.name)
-    print(decode.id)
-    for _,v in ipairs(decode.phone) do
-        print("\t"..v.number, v.type)
-    end
-end
-
---测试cjson--
-function Game.test_cjson_func()
-    local path = Util.DataPath.."lua/3rd/cjson/example2.json";
-    local text = util.file_load(path);
-    LuaHelper.OnJsonCallFunc(text, this.OnJsonCall);
-end
-
---cjson callback--
-function Game.OnJsonCall(data)
-    local obj = json.decode(data);
-    print(obj['menu']['id']);
-end
 
 --销毁--
 function Game.OnDestroy()

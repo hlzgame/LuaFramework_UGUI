@@ -89,15 +89,6 @@ end
 
 --单击事件--
 function PromptCtrl.OnClick(go)
-	if TestProtoType == ProtocalType.BINARY then
-		this.TestSendBinary();
-	end
-	if TestProtoType == ProtocalType.PB_LUA then
-		this.TestSendPblua();
-	end
-	if TestProtoType == ProtocalType.PBC then
-		this.TestSendPbc();
-	end
 	if TestProtoType == ProtocalType.SPROTO then
 		this.TestSendSproto();
 	end
@@ -163,56 +154,6 @@ function PromptCtrl.TestSendSproto()
     networkMgr:SendMessage(buffer);
 end
 
---测试发送PBC--
-function PromptCtrl.TestSendPbc()
-    local path = Util.DataPath.."lua/3rd/pbc/addressbook.pb";
-
-    local addr = io.open(path, "rb")
-    local buffer = addr:read "*a"
-    addr:close()
-    protobuf.register(buffer)
-
-    local addressbook = {
-        name = "Alice",
-        id = 12345,
-        phone = {
-            { number = "1301234567" },
-            { number = "87654321", type = "WORK" },
-        }
-    }
-    local code = protobuf.encode("tutorial.Person", addressbook)
-    ----------------------------------------------------------------
-    local buffer = ByteBuffer.New();
-    buffer:WriteShort(Protocal.Message);
-    buffer:WriteByte(ProtocalType.PBC);
-    buffer:WriteBuffer(code);
-    networkMgr:SendMessage(buffer);
-end
-
---测试发送PBLUA--
-function PromptCtrl.TestSendPblua()
-    local login = login_pb.LoginRequest();
-    login.id = 2000;
-    login.name = 'game';
-    login.email = 'jarjin@163.com';
-    local msg = login:SerializeToString();
-    ----------------------------------------------------------------
-    local buffer = ByteBuffer.New();
-    buffer:WriteShort(Protocal.Message);
-    buffer:WriteByte(ProtocalType.PB_LUA);
-    buffer:WriteBuffer(msg);
-    networkMgr:SendMessage(buffer);
-end
-
---测试发送二进制--
-function PromptCtrl.TestSendBinary()
-    local buffer = ByteBuffer.New();
-    buffer:WriteShort(Protocal.Message);
-    buffer:WriteByte(ProtocalType.BINARY);
-    buffer:WriteString("ffff我的ffffQ靈uuu");
-    buffer:WriteInt(200);
-    networkMgr:SendMessage(buffer);
-end
 
 --关闭事件--
 function PromptCtrl.Close()
