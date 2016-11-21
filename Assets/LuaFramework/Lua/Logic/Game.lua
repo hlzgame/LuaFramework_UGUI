@@ -39,10 +39,6 @@ function Game.OnInitOK()
     --注册LuaView--
     this.InitViewPanels();
 
-    -- this.test_pblua_func();
-    -- this.test_cjson_func();
-    -- this.test_pbc_func();
-    -- this.test_lpeg_func();
     -- this.test_sproto_func();
     -- coroutine.start(this.test_coroutine);
 
