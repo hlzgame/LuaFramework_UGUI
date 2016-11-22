@@ -45,7 +45,7 @@ function Game.OnInitOK()
     --初始化 控制器管理
     CtrlManager.Init();
     --获得提示管理器的实例
-    local ctrl = CtrlManager.GetCtrl(CtrlNames.Prompt);
+    local ctrl = CtrlManager.GetCtrl(CtrlNames.Battle);
     if ctrl ~= nil and AppConst.ExampleMode == 1 then
         ctrl:Awake();
     end
