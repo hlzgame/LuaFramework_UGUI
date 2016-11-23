@@ -7,8 +7,8 @@ local sproto = require "3rd/sproto/sproto"
 local core = require "sproto.core"
 local print_r = require "3rd/sproto/print_r"
 
-PromptCtrl = {};
-local this = PromptCtrl;
+PromptMgr = {};
+local this = PromptMgr;
 
 local panel;
 local prompt;
@@ -16,18 +16,18 @@ local transform;
 local gameObject;
 
 --构建函数--
-function PromptCtrl.New()
-	logWarn("PromptCtrl.New--->>");
+function PromptMgr.New()
+	logWarn("PromptMgr.New--->>");
 	return this;
 end
 
-function PromptCtrl.Awake()
-	logWarn("PromptCtrl.Awake--->>");
+function PromptMgr.Awake()
+	logWarn("PromptMgr.Awake--->>");
 	panelMgr:CreatePanel('Prompt', this.OnCreate);
 end
 
 --启动事件--
-function PromptCtrl.OnCreate(obj)
+function PromptMgr.OnCreate(obj)
 	gameObject = obj;
 	transform = obj.transform;
 
@@ -43,7 +43,7 @@ function PromptCtrl.OnCreate(obj)
 end
 
 --初始化面板--
-function PromptCtrl.InitPanel(objs)
+function PromptMgr.InitPanel(objs)
 	local count = 100; 
 	local parent = PromptPanel.gridParent;
 	for i = 1, count do
@@ -60,7 +60,7 @@ function PromptCtrl.InitPanel(objs)
 end
 
 --初始化面板--
--- function PromptCtrl:InitPanel()
+-- function PromptMgr:InitPanel()
 --     self.panel.depth = 1    --设置纵深--
 --     local parent = self.promptPanel.gridParent
 --     local itemPrefab = self.prompt:LoadAsset('PromptItem')
@@ -83,12 +83,12 @@ end
 
 
 --滚动项单击--
-function PromptCtrl.OnItemClick(go)
+function PromptMgr.OnItemClick(go)
     log(go.name);
 end
 
 --单击事件--
-function PromptCtrl.OnClick(go)
+function PromptMgr.OnClick(go)
 	if TestProtoType == ProtocalType.SPROTO then
 		this.TestSendSproto();
 	end
@@ -96,7 +96,7 @@ function PromptCtrl.OnClick(go)
 end
 
 --测试发送SPROTO--
-function PromptCtrl.TestSendSproto()
+function PromptMgr.TestSendSproto()
     local sp = sproto.parse [[
     .Person {
         name 0 : string
@@ -156,6 +156,6 @@ end
 
 
 --关闭事件--
-function PromptCtrl.Close()
-	panelMgr:ClosePanel(CtrlNames.Prompt);
+function PromptMgr.Close()
+	panelMgr:ClosePanel(MgrNames.Prompt);
 end

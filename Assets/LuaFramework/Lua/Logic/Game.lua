@@ -11,9 +11,9 @@ local core = require "sproto.core"
 local print_r = require "3rd/sproto/print_r"
 
 require "Logic/LuaClass"
-require "Logic/CtrlManager"
+require "Logic/GameManager"
 require "Common/functions"
-require "Controller/PromptCtrl"
+require "Manager/PromptMgr"
 
 --管理器--
 Game = {};
@@ -43,11 +43,11 @@ function Game.OnInitOK()
     -- coroutine.start(this.test_coroutine);
 
     --初始化 控制器管理
-    CtrlManager.Init();
+    GameManager.Init();
     --获得提示管理器的实例
-    local ctrl = CtrlManager.GetCtrl(CtrlNames.Battle);
-    if ctrl ~= nil and AppConst.ExampleMode == 1 then
-        ctrl:Awake();
+    local manager = GameManager.GetManager(MgrNames.Battle);
+    if manager ~= nil and AppConst.ExampleMode == 1 then
+        manager:Awake();
     end
        
     logWarn('LuaFramework InitOK--->>>');

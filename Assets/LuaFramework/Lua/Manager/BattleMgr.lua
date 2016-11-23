@@ -3,37 +3,37 @@
 -- Date: 2016-11-22 16:49:08
 -- 战斗控制器
 
-BattleCtrl = {};
-local this = BattleCtrl;
+BattleMgr = {};
+local this = BattleMgr;
 
 local message;
 local transform;
 local gameObject;
 
 --构建函数--
-function BattleCtrl.New()
-	logWarn("BattleCtrl.New--->>");
+function BattleMgr.New()
+	logWarn("BattleMgr.New--->>");
 	return this;
 end
 
-function BattleCtrl.Awake()
-	logWarn("BattleCtrl.Awake--->>");
+function BattleMgr.Awake()
+	logWarn("BattleMgr.Awake--->>");
 	panelMgr:CreatePanel('Battle', this.OnCreate);
 end
 
 --启动事件--
-function BattleCtrl.OnCreate(obj)
+function BattleMgr.OnCreate(obj)
 	gameObject = obj;
 	
 	logWarn("Start lua--->>"..gameObject.name);
 end
 
 --单击事件--
-function BattleCtrl.OnClick(go)
+function BattleMgr.OnClick(go)
 	destroy(gameObject);
 end
 
 --关闭事件--
-function BattleCtrl.Close()
-	panelMgr:ClosePanel(CtrlNames.Message);
+function BattleMgr.Close()
+	panelMgr:ClosePanel(MgrNames.Message);
 end

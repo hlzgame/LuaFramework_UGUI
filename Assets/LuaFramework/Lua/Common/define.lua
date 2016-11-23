@@ -1,11 +1,13 @@
 
-CtrlNames = {
-	Prompt = "PromptCtrl",
-	Message = "MessageCtrl",
-	Battle = "BattleCtrl",
+MgrNames = {
+    MainView = "MainViewMgr",
+	Prompt = "PromptMgr",
+	Message = "MessageMgr",
+	Battle = "BattleMgr",
 }
 
 PanelNames = {
+    "MainViewPanel",
 	"PromptPanel",	
 	"MessagePanel",
 	"BattlePanel",

@@ -1,24 +1,24 @@
 
-MessageCtrl = {};
-local this = MessageCtrl;
+MessageMgr = {};
+local this = MessageMgr;
 
 local message;
 local transform;
 local gameObject;
 
 --构建函数--
-function MessageCtrl.New()
-	logWarn("MessageCtrl.New--->>");
+function MessageMgr.New()
+	logWarn("MessageMgr.New--->>");
 	return this;
 end
 
-function MessageCtrl.Awake()
-	logWarn("MessageCtrl.Awake--->>");
+function MessageMgr.Awake()
+	logWarn("MessageMgr.Awake--->>");
 	panelMgr:CreatePanel('Message', this.OnCreate);
 end
 
 --启动事件--
-function MessageCtrl.OnCreate(obj)
+function MessageMgr.OnCreate(obj)
 	gameObject = obj;
 
 	message = gameObject:GetComponent('LuaBehaviour');
@@ -28,11 +28,11 @@ function MessageCtrl.OnCreate(obj)
 end
 
 --单击事件--
-function MessageCtrl.OnClick(go)
+function MessageMgr.OnClick(go)
 	destroy(gameObject);
 end
 
 --关闭事件--
-function MessageCtrl.Close()
-	panelMgr:ClosePanel(CtrlNames.Message);
+function MessageMgr.Close()
+	panelMgr:ClosePanel(MgrNames.Message);
 end

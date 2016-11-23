@@ -64,9 +64,9 @@ function Network.OnMessage(buffer)
 		this.TestLoginSproto(buffer);
 	end
 	----------------------------------------------------
-    local ctrl = CtrlManager.GetCtrl(CtrlNames.Message);
-    if ctrl ~= nil then
-        ctrl:Awake();
+    local manager = GameManager.GetManager(MgrNames.Message);
+    if manager ~= nil then
+        manager:Awake();
     end
     logWarn('OnMessage-------->>>');
 end
