@@ -11,9 +11,11 @@ local core = require "sproto.core"
 local print_r = require "3rd/sproto/print_r"
 
 require "Logic/LuaClass"
-require "Logic/GameManager"
 require "Common/functions"
 require "Manager/PromptMgr"
+
+--初始化
+require "Utils.ClientRequires"
 
 --管理器--
 Game = {};
@@ -37,19 +39,22 @@ function Game.OnInitOK()
     networkMgr:SendConnect();
 
     --注册LuaView--
-    this.InitViewPanels();
+    --this.InitViewPanels();
 
     -- this.test_sproto_func();
     -- coroutine.start(this.test_coroutine);
 
-    --初始化 控制器管理
-    GameManager.Init();
-    --获得提示管理器的实例
-    local manager = GameManager.GetManager(MgrNames.Battle);
-    if manager ~= nil and AppConst.ExampleMode == 1 then
-        manager:Awake();
+    -- --初始化 控制器管理
+    -- mtGameManager().Init();
+    -- --获得场景管理器的实例
+    -- local manager = mtGameManager().GetManager(MgrNames.Scene);
+    -- if manager ~= nil and AppConst.ExampleMode == 1 then
+    --     manager:Awake();
+    -- end
+    --进入场景管理器
+    if AppConst.ExampleMode == 1 then
+       mtSceneMgr():enterMainScene()
     end
-       
     logWarn('LuaFramework InitOK--->>>');
 end
 

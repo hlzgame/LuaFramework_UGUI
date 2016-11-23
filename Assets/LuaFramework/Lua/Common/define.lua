@@ -1,5 +1,6 @@
 
 MgrNames = {
+    Scene = "SceneMgr",
     MainView = "MainViewMgr",
 	Prompt = "PromptMgr",
 	Message = "MessageMgr",

@@ -36,3 +36,4 @@ end
 function MessageMgr.Close()
 	panelMgr:ClosePanel(MgrNames.Message);
 end
+

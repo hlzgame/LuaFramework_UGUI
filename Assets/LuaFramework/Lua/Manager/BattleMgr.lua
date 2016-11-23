@@ -3,37 +3,52 @@
 -- Date: 2016-11-22 16:49:08
 -- 战斗控制器
 
-BattleMgr = {};
-local this = BattleMgr;
+local BattleMgr = class("BattleMgr")
 
-local message;
-local transform;
-local gameObject;
-
---构建函数--
-function BattleMgr.New()
-	logWarn("BattleMgr.New--->>");
-	return this;
+function BattleMgr:getInstance(  )
+    if self.instance == nil then
+        self.instance = BattleMgr.new()
+    end
+    return self.instance
 end
 
-function BattleMgr.Awake()
-	logWarn("BattleMgr.Awake--->>");
-	panelMgr:CreatePanel('Battle', this.OnCreate);
+function BattleMgr:ctor()
+    
 end
 
---启动事件--
-function BattleMgr.OnCreate(obj)
-	gameObject = obj;
+--切换场景之后，调用该方法，开始加载场景控件
+function BattleMgr:initScene( ... )
 	
-	logWarn("Start lua--->>"..gameObject.name);
 end
 
---单击事件--
-function BattleMgr.OnClick(go)
-	destroy(gameObject);
+--初始化 战斗地图
+--[[
+    需要解决的问题：1、地图的坐标系要怎么来弄？
+                    2、地图的寻路是否使用A* 还是自带的导航网格
+                    3、死亡线的设定
+                    4、地图视角虚化
+                    5、地图物件的添加
+]]
+function BattleMgr:initBattleMap( ... )
+	
 end
 
---关闭事件--
-function BattleMgr.Close()
-	panelMgr:ClosePanel(MgrNames.Message);
+--初始化灯光
+--[[
+    减少动态灯光的使用
+]]
+function BattleMgr:initLight( ... )
+	
 end
+
+--初始化相机
+--[[
+    相机的初始位置
+    相机的移动规则
+]]
+function BattleMgr:initCamera( ... )
+	
+end
+
+
+return BattleMgr
