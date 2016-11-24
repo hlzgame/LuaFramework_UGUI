@@ -17,9 +17,21 @@ function BattleMgr:ctor()
 end
 
 --切换场景之后，调用该方法，开始加载场景控件
-function BattleMgr:initScene( ... )
-	
+function BattleMgr:initScene( )
+	log('BattleMgr:initScene')
+    
+    --加载 地图
+    resMgr:LoadPrefab('battle', { 'battleMap' }, self.initBattleMap);
 end
+
+-- function BattleMgr:OnCreate( obj )
+--     log('BattleMgr:OnCreate')
+--     self.gameObject = obj
+--     self.transform = obj.transform
+
+    
+
+-- end
 
 --初始化 战斗地图
 --[[
@@ -29,8 +41,14 @@ end
                     4、地图视角虚化
                     5、地图物件的添加
 ]]
-function BattleMgr:initBattleMap( ... )
-	
+function BattleMgr:initBattleMap( objs )
+	local map = newObject(objs[0]);
+     map.name = 'BattleMap'
+     --map.transform:SetParent(parent);
+     map.transform.localScale = Vector3.one;
+     map.transform.localPosition = Vector3.zero;
+
+     log(map.name);
 end
 
 --初始化灯光

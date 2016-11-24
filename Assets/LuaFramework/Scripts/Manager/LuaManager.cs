@@ -75,8 +75,6 @@ namespace LuaFramework {
                 lua.AddSearchPath(rootPath + "/ToLua/Lua");
             } else {
                 lua.AddSearchPath(Util.DataPath + "lua");
-
-                Debug.Log(Util.DataPath + "lua");
             }
         }
 

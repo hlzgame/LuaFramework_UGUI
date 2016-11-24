@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 925528046
+CRC: 2432165285
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: da89ecef8cdf63e06e32aa9c77ce0e6e
+    Hash: 467d012803a45ac1a5744ae7a59ccf4a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1033bf7ddfd4c6d43e7a6382c0a0a61a
@@ -12,12 +12,12 @@ ClassTypes:
 - Class: 49
   Script: {instanceID: 0}
 Assets:
-- Assets/Lua/UiScripts/ui_session.lua.bytes
-- Assets/Lua/UiScripts/ui_topbar.lua.bytes
-- Assets/Lua/UiScripts/init.lua.bytes
-- Assets/Lua/UiScripts/ui_messagebox.lua.bytes
-- Assets/Lua/UiScripts/ui_session_id.lua.bytes
-- Assets/Lua/UiScripts/ui_teammanage_scene.lua.bytes
 - Assets/Lua/UiScripts/ui_mainmenu_scene.lua.bytes
+- Assets/Lua/UiScripts/ui_topbar.lua.bytes
+- Assets/Lua/UiScripts/ui_session_id.lua.bytes
+- Assets/Lua/UiScripts/ui_messagebox.lua.bytes
+- Assets/Lua/UiScripts/init.lua.bytes
 - Assets/Lua/UiScripts/ui_manager.lua.bytes
+- Assets/Lua/UiScripts/ui_session.lua.bytes
+- Assets/Lua/UiScripts/ui_teammanage_scene.lua.bytes
 Dependencies: []

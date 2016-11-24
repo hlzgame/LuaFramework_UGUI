@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 90779470
+CRC: 3098264898
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 492e7f7be9b8a9a5791b8bbb27af75b0
+    Hash: 9bd8b1b7901df3975410ec93da47f3a2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1033bf7ddfd4c6d43e7a6382c0a0a61a
@@ -12,7 +12,7 @@ ClassTypes:
 - Class: 49
   Script: {instanceID: 0}
 Assets:
-- Assets/Lua/System/coroutine.lua.bytes
 - Assets/Lua/System/Timer.lua.bytes
 - Assets/Lua/System/ValueType.lua.bytes
+- Assets/Lua/System/coroutine.lua.bytes
 Dependencies: []

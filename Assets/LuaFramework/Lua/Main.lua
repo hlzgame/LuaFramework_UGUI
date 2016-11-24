@@ -6,4 +6,5 @@ end
 --场景切换通知
 function OnLevelWasLoaded(level)
 	Time.timeSinceLevelLoad = 0
+	log(" OnLevelWasLoaded  ")
 end

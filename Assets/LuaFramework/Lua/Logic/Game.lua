@@ -14,7 +14,7 @@ require "Logic/LuaClass"
 require "Common/functions"
 
 --初始化
-require "Common/ClientRequires"
+require "Utils.ClientRequires"
 
 --管理器--
 Game = {};
@@ -52,7 +52,8 @@ function Game.OnInitOK()
     -- end
     --进入场景管理器
     if AppConst.ExampleMode == 1 then
-       mtSceneMgr():enterMainScene()
+       mtBattleMgr():initScene()
+       --mtSceneMgr():enterMainScene()
     end
     logWarn('LuaFramework InitOK--->>>');
 end
