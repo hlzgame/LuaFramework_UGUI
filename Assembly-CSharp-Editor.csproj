@@ -65,6 +65,7 @@
      <Compile Include="Assets\LuaFramework\ToLua\Editor\ToLuaMenu.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\ToLuaTree.cs" />
      <None Include="Assets\StreamingAssets\files.txt" />
+     <None Include="Assets\Config\clientDBBase.xml" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>D:/untiy5.4.2/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>

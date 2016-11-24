@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3903371499
+CRC: 1242067416
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -9,13 +9,13 @@ AssetBundleManifest:
       Name: lua/lua_common.unity3d
       Dependencies: {}
     Info_2:
-      Name: lua/lua_controller.unity3d
-      Dependencies: {}
-    Info_3:
       Name: lua/lua_logic.unity3d
       Dependencies: {}
-    Info_4:
+    Info_3:
       Name: lua/lua_lpeg.unity3d
+      Dependencies: {}
+    Info_4:
+      Name: lua/lua_manager.unity3d
       Dependencies: {}
     Info_5:
       Name: lua/lua_misc.unity3d

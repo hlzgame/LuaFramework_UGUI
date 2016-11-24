@@ -12,10 +12,9 @@ local print_r = require "3rd/sproto/print_r"
 
 require "Logic/LuaClass"
 require "Common/functions"
-require "Manager/PromptMgr"
 
 --初始化
-require "Utils.ClientRequires"
+require "Common/ClientRequires"
 
 --管理器--
 Game = {};

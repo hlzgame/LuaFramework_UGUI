@@ -75,11 +75,14 @@ namespace LuaFramework {
                 lua.AddSearchPath(rootPath + "/ToLua/Lua");
             } else {
                 lua.AddSearchPath(Util.DataPath + "lua");
+
+                Debug.Log(Util.DataPath + "lua");
             }
         }
 
         /// <summary>
         /// 初始化LuaBundle
+        /// 这里新加的文件夹 需要 在这里 手动加入
         /// </summary>
         void InitLuaBundle() {
             if (loader.beZip) {
@@ -93,6 +96,9 @@ namespace LuaFramework {
                 loader.AddBundle("lua/lua_view.unity3d");
                 loader.AddBundle("lua/lua_controller.unity3d");
                 loader.AddBundle("lua/lua_misc.unity3d");
+                loader.AddBundle("lua/lua_utils.unity3d");
+                loader.AddBundle("lua/lua_manager.unity3d");
+                loader.AddBundle("lua/lua_uiscripts.unity3d");
 
                 loader.AddBundle("lua/lua_protobuf.unity3d");
                 loader.AddBundle("lua/lua_3rd_cjson.unity3d");
