@@ -19,19 +19,20 @@ end
 --切换场景之后，调用该方法，开始加载场景控件
 function BattleMgr:initScene( )
 	log('BattleMgr:initScene')
+
+    panelMgr:CreatePanel('Battle', self.OnCreate);
     
-    --加载 地图
-    resMgr:LoadPrefab('battle', { 'battleMap' }, self.initBattleMap);
 end
 
--- function BattleMgr:OnCreate( obj )
---     log('BattleMgr:OnCreate')
---     self.gameObject = obj
---     self.transform = obj.transform
+function BattleMgr:OnCreate( obj )
+    log('BattleMgr:OnCreate')
+    self.gameObject = obj
+    self.transform = obj.transform
 
-    
+    --加载 地图
+    --resMgr:LoadPrefab('battle', { 'battleMap' }, self.initBattleMap);
 
--- end
+end
 
 --初始化 战斗地图
 --[[

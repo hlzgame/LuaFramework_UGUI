@@ -46,9 +46,9 @@ end
 
 function SceneMgr:enterMainScene( )
     --进入第一个场景
-    local SceneManager = UnityEngine.SceneManagement.SceneManager;
-    -- LuaClient.OnSceneLoaded(1)
-    SceneManager.LoadScene(1)
+    -- local SceneManager = UnityEngine.SceneManagement.SceneManager;
+    -- -- LuaClient.OnSceneLoaded(1)
+    -- SceneManager.LoadScene(1)
     logWarn('OnLevelWasLoaded --->>>');
 
 end
