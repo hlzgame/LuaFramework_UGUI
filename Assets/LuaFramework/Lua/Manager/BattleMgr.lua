@@ -20,7 +20,7 @@ end
 function BattleMgr:initScene( )
 	log('BattleMgr:initScene')
 
-    panelMgr:CreatePanel('Battle', self.OnCreate);
+    --panelMgr:CreatePanel('Battle', self.OnCreate);
     
 end
 

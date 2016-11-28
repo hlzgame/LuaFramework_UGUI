@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3629291238
+CRC: 768060107
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -72,8 +72,11 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: shared_asset.unity3d
     Info_22:
-      Name: prompt_asset.unity3d
+      Name: battle.unity3d
       Dependencies: {}
     Info_23:
+      Name: prompt_asset.unity3d
+      Dependencies: {}
+    Info_24:
       Name: shared_asset.unity3d
       Dependencies: {}
