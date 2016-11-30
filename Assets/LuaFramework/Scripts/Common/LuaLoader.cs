@@ -47,6 +47,7 @@ namespace LuaFramework {
         /// <param name="fileName"></param>
         /// <returns></returns>
         public override byte[] ReadFile(string fileName) {
+            UnityEngine.Debug.LogWarning("ReadFile--fileName-->>>" + fileName);
             return base.ReadFile(fileName);     
         }
     }

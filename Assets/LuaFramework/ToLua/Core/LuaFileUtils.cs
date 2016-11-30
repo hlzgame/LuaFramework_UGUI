@@ -49,7 +49,7 @@ namespace LuaInterface
         }
 
         //beZip = false 在search path 中查找读取lua文件。否则从外部设置过来bundel文件中读取lua文件
-        public bool beZip = false;
+        public bool beZip = true;
         protected List<string> searchPaths = new List<string>();
         protected Dictionary<string, AssetBundle> zipMap = new Dictionary<string, AssetBundle>();
 
@@ -131,7 +131,8 @@ namespace LuaInterface
         }
 
         public string FindFile(string fileName)
-        {
+        {   
+            UnityEngine.Debug.LogWarning("FindFile--fileName-->>>" + fileName);
             if (fileName == string.Empty)
             {
                 return string.Empty;
@@ -142,6 +143,7 @@ namespace LuaInterface
                 if (!fileName.EndsWith(".lua"))
                 {
                     fileName += ".lua";
+                    UnityEngine.Debug.LogWarning("FindFile--fileName-->>>" + fileName);
                 }
 
                 return fileName;
@@ -150,6 +152,7 @@ namespace LuaInterface
             if (fileName.EndsWith(".lua"))
             {
                 fileName = fileName.Substring(0, fileName.Length - 4);
+                UnityEngine.Debug.LogWarning("FindFile--fileName-->>>" + fileName);
             }
 
             string fullPath = null;
@@ -168,9 +171,10 @@ namespace LuaInterface
         }
 
         public virtual byte[] ReadFile(string fileName)
-        {
+        {   
+            UnityEngine.Debug.LogWarning("ReadFile--fileName-->>>" + fileName);
             if (!beZip)
-            {
+            {            
                 string path = FindFile(fileName);
                 byte[] str = null;
 

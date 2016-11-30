@@ -1,5 +1,4 @@
 -- require "Utils/class"
-require("Utils/stack")
-require("Utils/functions")
-require("Utils/define")
+require("Common/functions")
+require("Common/define")
 -- require "Utils/simple_state_machine"
