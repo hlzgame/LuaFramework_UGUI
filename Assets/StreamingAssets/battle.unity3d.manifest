@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3212443753
+CRC: 2339498961
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 63527c8fc8d46a73d1a404eae7883af1
+    Hash: 4afcb5c1a92eae8cc21a4e4fee519cb0
   TypeTreeHash:
     serializedVersion: 2
     Hash: 55753cae34753bf613f7f1a5126c2922
@@ -36,7 +36,9 @@ ClassTypes:
 - Class: 124
   Script: {instanceID: 0}
 Assets:
-- Assets/LuaFramework/Examples/Builds/Battle/Directional light.prefab
-- Assets/LuaFramework/Examples/Builds/Battle/BattlePanel.prefab
-- Assets/LuaFramework/Examples/Builds/Battle/Camera.prefab
-Dependencies: []
+- Assets/Resources/Builds/Battle/chr_man.prefab
+- Assets/Resources/Builds/Battle/Directional light.prefab
+- Assets/Resources/Builds/Battle/BattlePanel.prefab
+- Assets/Resources/Builds/Battle/Camera.prefab
+Dependencies:
+- Assets/StreamingAssets/battle_asset.unity3d

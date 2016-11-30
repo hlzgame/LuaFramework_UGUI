@@ -27,7 +27,7 @@ public class Packager {
     /// </summary>
     static UnityEngine.Object LoadAsset(string file) {
         if (file.EndsWith(".lua")) file += ".txt";
-        return AssetDatabase.LoadMainAssetAtPath("Assets/LuaFramework/Examples/Builds/" + file);
+        return AssetDatabase.LoadMainAssetAtPath("Assets/Resources/Builds/" + file);
     }
 
     [MenuItem("LuaFramework/Build iPhone Resource", false, 100)]
@@ -57,10 +57,12 @@ public class Packager {
     public static void BuildAssetResource(BuildTarget target) {
         if (Directory.Exists(Util.DataPath)) {
             Directory.Delete(Util.DataPath, true);
+            UnityEngine.Debug.LogWarning("Directory.Delete--Util.DataPath-->>>" + Util.DataPath);
         }
         string streamPath = Application.streamingAssetsPath;
         if (Directory.Exists(streamPath)) {
             Directory.Delete(streamPath, true);
+            UnityEngine.Debug.LogWarning("Directory.Delete--streamPath-->>>" + streamPath);
         }
         Directory.CreateDirectory(streamPath);
         AssetDatabase.Refresh();
@@ -81,7 +83,11 @@ public class Packager {
         BuildFileIndex();
 
         string streamDir = Application.dataPath + "/" + AppConst.LuaTempDir;
-        if (Directory.Exists(streamDir)) Directory.Delete(streamDir, true);
+        if (Directory.Exists(streamDir))
+        {
+            Directory.Delete(streamDir, true);
+            UnityEngine.Debug.LogWarning("Directory.Delete--streamDir-->>>" + streamDir);
+        }
         AssetDatabase.Refresh();
     }
 
@@ -163,12 +169,13 @@ public class Packager {
         string resPath = AppDataPath + "/" + AppConst.AssetDir + "/";
         if (!Directory.Exists(resPath)) Directory.CreateDirectory(resPath);
 
-        AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Prompt");
-        AddBuildMap("message" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Message");
-        AddBuildMap("battle" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Battle");
+        AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/Resources/Builds/Prompt");
+        AddBuildMap("message" + AppConst.ExtName, "*.prefab", "Assets/Resources/Builds/Message");
+        AddBuildMap("battle" + AppConst.ExtName, "*.prefab", "Assets/Resources/Builds/Battle");
 
-        AddBuildMap("prompt_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Prompt");
-        AddBuildMap("shared_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Shared");
+        AddBuildMap("prompt_asset" + AppConst.ExtName, "*.png", "Assets/Resources/Textures/Prompt");
+        AddBuildMap("shared_asset" + AppConst.ExtName, "*.png", "Assets/Resources/Textures/Shared");
+        AddBuildMap("battle_asset" + AppConst.ExtName, "*.png", "Assets/Resources/Textures/Battle");
     }
 
     /// <summary>
@@ -199,6 +206,7 @@ public class Packager {
 
                 if (File.Exists(newpath)) {
                     File.Delete(newpath);
+                    UnityEngine.Debug.LogWarning("File.Delete--newpath-->>>" + newpath);
                 }
                 if (AppConst.LuaByteMode) {
                     EncodeLuaFile(f, newpath);
@@ -216,7 +224,11 @@ public class Packager {
         string resPath = AppDataPath + "/StreamingAssets/";
         ///----------------------创建文件列表-----------------------
         string newFilePath = resPath + "/files.txt";
-        if (File.Exists(newFilePath)) File.Delete(newFilePath);
+        if (File.Exists(newFilePath))
+        {   
+            File.Delete(newFilePath);
+            UnityEngine.Debug.LogWarning("File.Delete--newFilePath-->>>" + newFilePath);
+            } 
 
         paths.Clear(); files.Clear();
         Recursive(resPath);

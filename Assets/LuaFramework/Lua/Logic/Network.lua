@@ -20,10 +20,10 @@ local islogging = false;
 
 function Network.Start() 
     logWarn("Network.Start!!");
-    Event.AddListener(Protocal.Connect, this.OnConnect);
-    Event.AddListener(Protocal.Message, this.OnMessage);
-    Event.AddListener(Protocal.Exception, this.OnException);
-    Event.AddListener(Protocal.Disconnect, this.OnDisconnect);
+    Event.AddListener(Protocal.Connect, this.OnConnect); 
+    Event.AddListener(Protocal.Message, this.OnMessage); 
+    Event.AddListener(Protocal.Exception, this.OnException); 
+    Event.AddListener(Protocal.Disconnect, this.OnDisconnect); 
 end
 
 --Socket消息--
@@ -64,9 +64,9 @@ function Network.OnMessage(buffer)
 		this.TestLoginSproto(buffer);
 	end
 	----------------------------------------------------
-    local manager = GameManager.GetManager(MgrNames.Message);
-    if manager ~= nil then
-        manager:Awake();
+    local ctrl = CtrlManager.GetCtrl(CtrlNames.Message);
+    if ctrl ~= nil then
+        ctrl:Awake();
     end
     logWarn('OnMessage-------->>>');
 end

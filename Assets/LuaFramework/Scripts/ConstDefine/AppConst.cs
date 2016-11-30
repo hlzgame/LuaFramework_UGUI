@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace LuaFramework {
     public class AppConst {
-        public const bool DebugMode = false;                       //调试模式-用于内部测试
+        public const bool DebugMode = true;                       //调试模式-用于内部测试
         /// <summary>
         /// 如果想删掉框架自带的例子，那这个例子模式必须要
         /// 关闭，否则会出现一些错误。
@@ -26,6 +26,7 @@ namespace LuaFramework {
 
         public const string AppName = "LuaFramework";               //应用程序名称
         public const string LuaTempDir = "Lua/";                    //临时目录
+        public const string LuaResources = "Resources";
         public const string AppPrefix = AppName + "_";              //应用程序前缀
         public const string ExtName = ".unity3d";                   //素材扩展名
         public const string AssetDir = "StreamingAssets";           //素材目录 
@@ -34,7 +35,12 @@ namespace LuaFramework {
         public static string UserId = string.Empty;                 //用户ID
         public static int SocketPort = 0;                           //Socket服务器端口
         public static string SocketAddress = string.Empty;          //Socket服务器地址
-
+        
+        public static string LuaRoot {
+            get {
+                return Application.dataPath + "/" + LuaResources;
+            }
+        }
         public static string FrameworkRoot {
             get {
                 return Application.dataPath + "/" + AppName;
