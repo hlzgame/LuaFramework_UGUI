@@ -595,33 +595,9 @@ local SceneMgr = nil
 -- @return Manager.SceneMgr
 function mtSceneMgr()
     if SceneMgr == nil then
-        SceneMgr = require("Manager.SceneMgr")
+        SceneMgr = require("Manager.SceneMgr"):getInstance()
     end
     return SceneMgr
-end
-
---消息管理器
-local MessageMgr = nil 
---- 点击场景节点
--- @function mtMessageMgr
--- @return Manager.MessageMgr
-function mtMessageMgr()
-    if MessageMgr == nil then
-        MessageMgr = require("Manager.MessageMgr")
-    end
-    return MessageMgr
-end
-
---提示管理器
-local PromptMgr = nil 
---- 点击场景节点
--- @function PromptMgr
--- @return Manager.PromptMgr
-function mtPromptMgr()
-    if PromptMgr == nil then
-        PromptMgr = require("Manager.PromptMgr")
-    end
-    return PromptMgr
 end
 
 --战斗管理器
@@ -631,7 +607,7 @@ local BattleMgr = nil
 -- @return Manager.BattleMgr
 function mtBattleMgr()
     if BattleMgr == nil then
-        BattleMgr = require("Manager.BattleMgr")
+        BattleMgr = require("Manager.BattleMgr"):getInstance()
     end
     return BattleMgr
 end

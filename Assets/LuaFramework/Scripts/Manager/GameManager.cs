@@ -247,6 +247,7 @@ namespace LuaFramework {
             //var testObj1 = objPool.Get();
 
             //方法2
+            /*
             ObjPoolManager.Release<TestObjectClass>(new TestObjectClass("abcd", 100, 200f));
             var testObj1 = ObjPoolManager.Get<TestObjectClass>();
 
@@ -265,7 +266,7 @@ namespace LuaFramework {
             var backObj = ObjPoolManager.Get("TestGameObject");
             backObj.transform.SetParent(null);
 
-            Debug.Log("TestGameObject--->>>" + backObj);
+            Debug.Log("TestGameObject--->>>" + backObj);*/
         }
 
         /// <summary>

@@ -21,17 +21,10 @@ function BattleMgr:initScene( )
 	log('BattleMgr:initScene')
 
     --panelMgr:CreatePanel('Battle', self.OnCreate);
+
+    self.battleMap = GameObject.Find("BattlePanel");
     
-end
-
-function BattleMgr:OnCreate( obj )
-    log('BattleMgr:OnCreate')
-    self.gameObject = obj
-    self.transform = obj.transform
-
-    --加载 地图
-    --resMgr:LoadPrefab('battle', { 'battleMap' }, self.initBattleMap);
-
+    resMgr:LoadPrefab('battle', { 'chr_man' }, self.initPlayer);
 end
 
 --初始化 战斗地图
@@ -42,14 +35,16 @@ end
                     4、地图视角虚化
                     5、地图物件的添加
 ]]
-function BattleMgr:initBattleMap( objs )
-	local map = newObject(objs[0]);
-     map.name = 'BattleMap'
-     --map.transform:SetParent(parent);
-     map.transform.localScale = Vector3.one;
-     map.transform.localPosition = Vector3.zero;
+function BattleMgr:initPlayer( objs )
 
-     log(map.name);
+    log('BattleMgr:initPlayer')
+	local player = newObject(objs[0]);
+     player.name = 'player'
+     player.transform:SetParent(self.battleMap);
+     player.transform.localScale = Vector3.one;
+     player.transform.localPosition = Vector3.zero;
+
+     log(player.name);
 end
 
 --初始化灯光
