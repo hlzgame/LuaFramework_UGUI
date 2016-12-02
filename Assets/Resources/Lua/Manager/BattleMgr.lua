@@ -20,11 +20,21 @@ end
 function BattleMgr:initScene( )
 	log('BattleMgr:initScene')
 
-    --panelMgr:CreatePanel('Battle', self.OnCreate);
-
     self.battleMap = GameObject.Find("BattlePanel");
-    
+
     resMgr:LoadPrefab('battle', { 'chr_man' }, self.initPlayer);
+end
+
+function BattleMgr:initPlayer( objs )
+    --local player = UnityEngine.GameObject.Instantiate(objs[0]);
+    log('BattleMgr:initPlayer')
+	 local player = newObject(objs[0]);
+     player.name = 'player'
+     player.transform:SetParent(self.battleMap);
+     player.transform.localScale = Vector3.one;
+     player.transform.localPosition = Vector3.zero;
+
+     log(player.name);
 end
 
 --初始化 战斗地图
@@ -35,17 +45,6 @@ end
                     4、地图视角虚化
                     5、地图物件的添加
 ]]
-function BattleMgr:initPlayer( objs )
-
-    log('BattleMgr:initPlayer')
-	local player = newObject(objs[0]);
-     player.name = 'player'
-     player.transform:SetParent(self.battleMap);
-     player.transform.localScale = Vector3.one;
-     player.transform.localPosition = Vector3.zero;
-
-     log(player.name);
-end
 
 --初始化灯光
 --[[

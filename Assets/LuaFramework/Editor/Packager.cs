@@ -167,14 +167,11 @@ public class Packager {
     /// </summary>
     static void HandleExampleBundle() {
         string resPath = AppDataPath + "/" + AppConst.AssetDir + "/";
+        UnityEngine.Debug.LogWarning("HandleExampleBundle--resPath-->>>" + resPath);
         if (!Directory.Exists(resPath)) Directory.CreateDirectory(resPath);
 
-        AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/Resources/Builds/Prompt");
-        AddBuildMap("message" + AppConst.ExtName, "*.prefab", "Assets/Resources/Builds/Message");
         AddBuildMap("battle" + AppConst.ExtName, "*.prefab", "Assets/Resources/Builds/Battle");
 
-        AddBuildMap("prompt_asset" + AppConst.ExtName, "*.png", "Assets/Resources/Textures/Prompt");
-        AddBuildMap("shared_asset" + AppConst.ExtName, "*.png", "Assets/Resources/Textures/Shared");
         AddBuildMap("battle_asset" + AppConst.ExtName, "*.png", "Assets/Resources/Textures/Battle");
     }
 
