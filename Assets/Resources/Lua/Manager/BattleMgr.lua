@@ -3,6 +3,8 @@
 -- Date: 2016-11-22 16:49:08
 -- 战斗控制器
 
+require("Player.PlayerLua")
+
 local BattleMgr = class("BattleMgr")
 
 function BattleMgr:getInstance(  )
@@ -20,9 +22,22 @@ end
 function BattleMgr:initScene( )
 	log('BattleMgr:initScene')
 
-    self.battleMap = GameObject.Find("BattlePanel");
+    self.battleMap = GameObject.Find("BattlePanel")
 
-    resMgr:LoadPrefab('battle', { 'chr_man' }, self.initPlayer);
+    self.player = GameObject.Find("chr_man")
+
+
+
+    --resMgr:LoadPrefab('battle', { 'chr_man' }, self.initPlayer);
+
+    self:startBattle()
+end
+
+function BattleMgr:startBattle( )
+    log('BattleMgr:startBattle')
+
+    LuaComponent.Add(self.player,PlayerLua)
+
 end
 
 function BattleMgr:initPlayer( objs )

@@ -38,10 +38,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>D:/untiy5.4.2/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>D:/Project/U3D/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:/untiy5.4.2/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>D:/Project/U3D/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +178,7 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\BaseWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\DelegateFactory.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaBinder.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaComponentWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_AppConstWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_ByteBufferWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_GameManagerWrap.cs" />
@@ -254,17 +255,19 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_WrapModeWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\ViewWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\LuaConst.cs" />
+     <Compile Include="Assets\Resources\Scripts\LuaComponent.cs" />
      <None Include="Assets\StreamingAssets\files.txt" />
      <None Include="Assets\Config\clientDBBase.xml" />
+     <None Include="Assets\Resources\Lua\System\readme.txt" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/untiy5.4.2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Project/U3D/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>D:/untiy5.4.2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>D:/Project/U3D/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Debugger">
- <HintPath>O:/UnityMOH/LuaFramework_UGUI/Assets/Plugins/Debugger.dll</HintPath>
+ <HintPath>D:/Project/U3DMOH/LuaFramework_UGUI/Assets/Plugins/Debugger.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
