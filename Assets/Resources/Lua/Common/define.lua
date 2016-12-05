@@ -37,3 +37,4 @@ networkMgr = LuaHelper.GetNetManager();
 
 WWW = UnityEngine.WWW;
 GameObject = UnityEngine.GameObject;
+Input = UnityEngine.Input;

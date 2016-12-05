@@ -170,9 +170,9 @@ public class Packager {
         UnityEngine.Debug.LogWarning("HandleExampleBundle--resPath-->>>" + resPath);
         if (!Directory.Exists(resPath)) Directory.CreateDirectory(resPath);
 
-        AddBuildMap("battle" + AppConst.ExtName, "*.prefab", "Assets/Resources/Builds/Battle");
+        AddBuildMap("Battle" + AppConst.ExtName, "*.prefab", "Assets/Resources/Builds/Battle");
 
-        AddBuildMap("battle_asset" + AppConst.ExtName, "*.png", "Assets/Resources/Textures/Battle");
+        AddBuildMap("Battle_asset" + AppConst.ExtName, "*.png", "Assets/Resources/Textures/Battle");
     }
 
     /// <summary>

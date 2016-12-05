@@ -3,7 +3,7 @@
 -- Date: 2016-11-22 16:49:08
 -- 战斗控制器
 
-require("Player.PlayerLua")
+require("Player.PlayerController")
 
 local BattleMgr = class("BattleMgr")
 
@@ -26,17 +26,17 @@ function BattleMgr:initScene( )
 
     self.player = GameObject.Find("chr_man")
 
+    resMgr:LoadPrefab('Battle', {'chr_man'}, self.initPlayer);
 
-
-    --resMgr:LoadPrefab('battle', { 'chr_man' }, self.initPlayer);
-
-    self:startBattle()
+    --self:startBattle()
 end
 
 function BattleMgr:startBattle( )
     log('BattleMgr:startBattle')
 
-    LuaComponent.Add(self.player,PlayerLua)
+
+    
+    LuaComponent.Add(self.player,PlayerController)
 
 end
 
@@ -44,12 +44,12 @@ function BattleMgr:initPlayer( objs )
     --local player = UnityEngine.GameObject.Instantiate(objs[0]);
     log('BattleMgr:initPlayer')
 	 local player = newObject(objs[0]);
-     player.name = 'player'
-     player.transform:SetParent(self.battleMap);
-     player.transform.localScale = Vector3.one;
-     player.transform.localPosition = Vector3.zero;
+     -- player.name = 'player'
+     -- player.transform:SetParent(self.battleMap);
+     -- player.transform.localScale = Vector3.one;
+     -- player.transform.localPosition = Vector3.zero;
 
-     log(player.name);
+     --log(player.name);
 end
 
 --初始化 战斗地图

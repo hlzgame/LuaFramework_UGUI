@@ -64,15 +64,25 @@ public class LuaComponent : MonoBehaviour
     }
 
 
-    void Update () 
+    /*void Update () 
     {
             //效率问题有待测试和优化
             //可在lua中调用UpdateBeat替代
+            //在脚本里面用 UpdateBeat:Add(self.Update, self)
+            //             UpdateBeat:Remove(self.Update, self)
             LuaFunction fun = table.GetLuaFunction("Update");
             if (fun != null)
                     fun.Call (table, gameObject);
-    }
+    }*/
 
+    void OnDestroy () 
+    {
+            //效率问题有待测试和优化
+            //可在lua中调用UpdateBeat替代
+            LuaFunction fun = table.GetLuaFunction("OnDestroy");
+            if (fun != null)
+                    fun.Call (table, gameObject);
+    }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
