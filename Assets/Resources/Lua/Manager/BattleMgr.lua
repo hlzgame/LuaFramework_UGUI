@@ -28,7 +28,7 @@ function BattleMgr:initScene( )
 
     resMgr:LoadPrefab('Battle', {'chr_man'}, self.initPlayer);
 
-    --self:startBattle()
+    -- self:startBattle()
 end
 
 function BattleMgr:startBattle( )

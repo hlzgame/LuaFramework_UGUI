@@ -2,7 +2,7 @@ local UpdateBeat = UpdateBeat
 
 PlayerController = 
 {
-    name = "good tank",
+    name = "Player",
     speed = 0.1,
     dircetion = 1
 }

@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{C83DDF30-99AA-4119-DA8D-F49A446A0B2E}") = "MOHU3D", "Assembly-CSharp.csproj", "{6186CBBC-2D28-3048-8CBB-8D9FE57E911A}"
+EndProject
+Project("{C83DDF30-99AA-4119-DA8D-F49A446A0B2E}") = "MOHU3D", "Assembly-CSharp-Editor.csproj", "{76ED84BF-9958-8FB0-FB2F-8B33988F157C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6186CBBC-2D28-3048-8CBB-8D9FE57E911A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6186CBBC-2D28-3048-8CBB-8D9FE57E911A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6186CBBC-2D28-3048-8CBB-8D9FE57E911A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6186CBBC-2D28-3048-8CBB-8D9FE57E911A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76ED84BF-9958-8FB0-FB2F-8B33988F157C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76ED84BF-9958-8FB0-FB2F-8B33988F157C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76ED84BF-9958-8FB0-FB2F-8B33988F157C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76ED84BF-9958-8FB0-FB2F-8B33988F157C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
