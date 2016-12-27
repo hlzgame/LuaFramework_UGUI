@@ -12,7 +12,7 @@ end
 function Game:init( ... )
 	log(" Game init")
 
-	mtBattleMgr():initScene()
+	mtOreMapMgr():initScene()
 end
 
 return Game

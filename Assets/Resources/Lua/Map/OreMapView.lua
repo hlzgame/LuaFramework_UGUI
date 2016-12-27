@@ -33,15 +33,18 @@ function OreMapView:initOre( ... )
    self.ore = GameObject.Find("Ore")
    self.mask = GameObject.Find("Mask")
    self.background = GameObject.Find("BackGround")
+  
+   self.row = 1
 
-   
+   self.maxRow = 5
+   self:startCreate()
 
 end
 
 
 
 function OreMapView:startCreate( ... )
-  --UpdateBeat:Add(self.Update, self)
+    UpdateBeat:Add(self.Update, self)
 end
 
 
@@ -51,12 +54,24 @@ end
 
 ]]
 function OreMapView:Update()
+   print("OreMapView:Update")
 
+   self:createNewOre()
 end
 
 --添加新的矿石（以每行为单位）
 function OreMapView:createNewOre(  )
   -- body
+    if self.row <= self.maxRow then 
+        local go = newObject(self.ore);
+        go.name = 'Item'..tostring(i);
+        --go.transform:SetParent(parent);
+        go.transform.localScale = Vector3.one;
+        go.transform.localPosition = Vector3(self.ore.transform.localPosition.x,self.ore.transform.localPosition.y - 0.8*(self.row-1),self.ore.transform.localPosition.z);
+        self.row = self.row + 1
+    else 
+       print("max row")
+    end
 end
 
 --添加新的遮罩黑雾（以每行为单位）
