@@ -18,21 +18,26 @@ function OreMapMgr:ctor()
     
 end
 
+--初始化新的一轮数据
+function OreMapMgr:initData(  )
+    -- body
+end
+
 --切换场景之后，调用该方法，开始加载场景控件
 function OreMapMgr:initScene( )
 	log('OreMapMgr:initScene')
 
-    self.battleMap = GameObject.Find("BattlePanel")
+    self.gameManager = GameObject.Find("GameManager")
 
-    self.player = GameObject.Find("chr_man")
+    -- self.player = GameObject.Find("chr_man")
 
-    -- self:startBattle()
+    --self:startBattle()
 end
 
-function OreMapMgr:startBattle( )
-    log('OreMapMgr:startBattle')
+function OreMapMgr:startGame( )
+    log('OreMapMgr:startGame')
 
-    LuaComponent.Add(self.player,OreMapView)
+    LuaComponent.Add(self.gameManager,OreMapView)
 
 end
 
