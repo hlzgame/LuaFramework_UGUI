@@ -67,15 +67,6 @@ function MineMgr:startGame( )
 
 end
 
---初始化相机
---[[
-    相机的初始位置
-    相机的移动规则
-]]
-function MineMgr:initCamera(  )
-	
-end
-
 -----------------------------------------数据层的管理----------------------------------------
 
 function MineMgr:getPlayerNowRow( )
@@ -110,6 +101,18 @@ end
 --通过id 获得矿石数据
 function MineMgr:getOreDataByID( oreID )
     -- body
+end
+
+--将新添加的矿石加入数组
+function MineMgr:addOreToList( ore )
+    --self.oreList
+
+end
+
+--将新添加的道具加入数组
+function MineMgr:addItemToList( ore )
+    --self.itemList
+
 end
 
 
