@@ -613,12 +613,12 @@ function mtBattleMgr()
 end
 
 --矿场管理器
-local OreMapMgr = nil 
--- @function OreMapMgr
--- @return Manager.OreMapMgr
-function mtOreMapMgr()
-    if OreMapMgr == nil then
-        OreMapMgr = require("Manager.OreMapMgr"):getInstance()
+local MineMgr = nil 
+-- @function MineMgr
+-- @return Manager.MineMgr
+function mtMineMgr()
+    if MineMgr == nil then
+        MineMgr = require("Manager.MineMgr"):getInstance()
     end
-    return OreMapMgr
+    return MineMgr
 end

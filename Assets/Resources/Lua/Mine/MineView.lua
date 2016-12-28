@@ -1,34 +1,34 @@
 local UpdateBeat = UpdateBeat
 
 --该类 只负责矿石的创建 刷新 销毁 黑雾消散 
-OreMapView = 
+MineView = 
 {
-    name = "OreMapView",
+    name = "MineView",
     speed = 0.1,
     dircetion = 1
 }
 
 --创建对象
-function OreMapView:New(obj)
+function MineView:New(obj)
     local o = {} 
     setmetatable(o, self)  
     self.__index = self  
     return o
 end  
 
-function OreMapView:Awake(gameObject) 
-   print("OreMapView Awake name = "..self.name );
+function MineView:Awake(gameObject) 
+   print("MineView Awake name = "..self.name );
    self.gameObject = gameObject
 
 end
 
-function OreMapView:Start() 
+function MineView:Start() 
     
  
 end
 
 --初始化前几排的矿石
-function OreMapView:initOre( ... )
+function MineView:initOre( ... )
 
    self.ore = GameObject.Find("Ore")
    self.mask = GameObject.Find("Mask")
@@ -43,7 +43,7 @@ end
 
 
 
-function OreMapView:startCreate( ... )
+function MineView:startCreate( ... )
     UpdateBeat:Add(self.Update, self)
 end
 
@@ -53,14 +53,14 @@ end
     分帧来刷新矿石 添加黑雾
 
 ]]
-function OreMapView:Update()
-   print("OreMapView:Update")
+function MineView:Update()
+   print("MineView:Update")
 
    self:createNewOre()
 end
 
 --添加新的矿石（以每行为单位）
-function OreMapView:createNewOre(  )
+function MineView:createNewOre(  )
   -- body
     if self.row <= self.maxRow then 
         local go = newObject(self.ore);
@@ -75,17 +75,17 @@ function OreMapView:createNewOre(  )
 end
 
 --添加新的遮罩黑雾（以每行为单位）
-function OreMapView:createNewMask(  )
+function MineView:createNewMask(  )
   -- body
 end
 
 --清除报废的矿石和黑雾（以及生成的原矿和道具等）
-function OreMapView:clearScrapOreAndMask(  )
+function MineView:clearScrapOreAndMask(  )
   -- body
 end
 
 
-function OreMapView:stop( )
+function MineView:stop( )
     UpdateBeat:Remove(self.Update, self)
 end
 
