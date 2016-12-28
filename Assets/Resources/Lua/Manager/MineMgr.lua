@@ -3,6 +3,8 @@
 -- Date: 2016-12-28 21:02:00
 -- 矿场控制器
 
+
+--加载矿场视图脚本
 require("Mine.MineView")
 
 local MineMgr = class("MineMgr")
@@ -33,8 +35,11 @@ function MineMgr:initData(  )
     --资源安全存在层数 最大存在N层的矿石
     self.safeRow = 40
 
+    --现存矿石数组
+    self.oreList = {}
 
-
+    --现存道具数组
+    self.itemList = {}
 
     -- body
     self:startGame()
@@ -43,20 +48,20 @@ end
 --切换场景之后，调用该方法，开始加载场景控件
 function MineMgr:initScene( )
 	log('MineMgr:initScene')
-
-    self.gameManager = GameObject.Find("GameManager")
+    
+    --获得管理矿场的矿场空 节点MineManager
+    self.mineManager = GameObject.Find("MineManager")
 
     -- self.player = GameObject.Find("chr_man")
    
     self:initData()
-
     
 end
 
 function MineMgr:startGame( )
     log('MineMgr:startGame')
 
-    LuaComponent.Add(self.gameManager,MineView)
+    LuaComponent.Add(self.mineManager,MineView)
 
     MineView:initOre()
 
@@ -67,7 +72,7 @@ end
     相机的初始位置
     相机的移动规则
 ]]
-function MineMgr:initCamera( ... )
+function MineMgr:initCamera(  )
 	
 end
 
