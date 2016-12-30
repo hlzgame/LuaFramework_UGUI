@@ -65,7 +65,7 @@ function MineMgr:startGame( )
 
     LuaComponent.Add(self.mineManager,MineView)
 
-    MineView:initOre()
+    MineView:initOreData()
 
     self.mineView = MineView
 
@@ -128,13 +128,21 @@ end
 
 -------------------------------------坐标转换相关-----------------------------------------
 --世界坐标转换为矿场坐标
-function MineMgr:worldPosToMinePos( ... )
-    -- body
+function MineMgr:worldPosToMinePos( vector3 )
+    local posX = vector3.x 
+    local posY = vector3.y 
+    local posZ = vector3.z
+
+    return Vector3(posX,posY,posZ)
 end
 
 --矿场坐标转换为世界坐标
-function MineMgr:minePosToWorldPos( ... )
-    -- body
+function MineMgr:minePosToWorldPos( vector3 )
+    local posX = vector3.x 
+    local posY = vector3.y 
+    local posZ = vector3.z
+
+    return Vector3(posX,posY,posZ)
 end
 
 

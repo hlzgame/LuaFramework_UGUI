@@ -28,7 +28,7 @@ function MineView:Start()
 end
 
 --初始化前几排的矿石
-function MineView:initOre( ... )
+function MineView:initOreData( ... )
 
    self.ore = GameObject.Find("Ore")
    self.mask = GameObject.Find("Mask")
@@ -113,6 +113,18 @@ function MineView:createNewMask(  )
     go.transform.localPosition = Vector3(self.mask.transform.localPosition.x,self.mask.transform.localPosition.y - 0.8*self.nowOreRow,self.mask.transform.localPosition.z);
 
 end
+
+--添加新的背景
+function MineView:createNewBackGround(  )
+    -- local go = newObject(self.mask);
+    -- go.name = 'mask'..tostring(self.nowOreRow);
+    -- --go.transform:SetParent(parent);
+    -- go.transform.localScale = Vector3.one;
+    -- go.transform.localPosition = Vector3(self.mask.transform.localPosition.x,self.mask.transform.localPosition.y - 0.8*self.nowOreRow,self.mask.transform.localPosition.z);
+
+end
+
+
 
 --移动相机所在的位置
 function MineView:refreshCameraPos( )
