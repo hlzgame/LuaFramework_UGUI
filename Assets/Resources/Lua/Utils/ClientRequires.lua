@@ -618,7 +618,7 @@ local MineMgr = nil
 -- @return Manager.MineMgr
 function mtMineMgr()
     if MineMgr == nil then
-        MineMgr = require("Manager.MineMgr"):getInstance()
+        MineMgr = require("Mine.MineMgr"):getInstance()
     end
     return MineMgr
 end

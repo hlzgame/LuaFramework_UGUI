@@ -35,6 +35,8 @@ function MineMgr:initData(  )
     --资源安全存在层数 最大存在N层的矿石
     self.safeRow = 40
 
+    self.cameraSpeed = 0.01
+
     --现存矿石数组
     self.oreList = {}
 
@@ -65,6 +67,8 @@ function MineMgr:startGame( )
 
     MineView:initOre()
 
+    self.mineView = MineView
+
 end
 
 -----------------------------------------数据层的管理----------------------------------------
@@ -76,7 +80,6 @@ end
 function MineMgr:setPlayerNowRow( playerNowRow )
     self.playerNowRow = playerNowRow
 end
-
 
 function MineMgr:getPlayerMaxRow( )
     return self.playerMaxRow
@@ -98,6 +101,14 @@ function MineMgr:getSafeRow( )
     return self.safeRow
 end
 
+function MineMgr:getCameraSpeed( )
+    return self.cameraSpeed
+end
+
+function MineMgr:getMineView( )
+    return self.mineView
+end
+
 --通过id 获得矿石数据
 function MineMgr:getOreDataByID( oreID )
     -- body
@@ -113,6 +124,17 @@ end
 function MineMgr:addItemToList( ore )
     --self.itemList
 
+end
+
+-------------------------------------坐标转换相关-----------------------------------------
+--世界坐标转换为矿场坐标
+function MineMgr:worldPosToMinePos( ... )
+    -- body
+end
+
+--矿场坐标转换为世界坐标
+function MineMgr:minePosToWorldPos( ... )
+    -- body
 end
 
 

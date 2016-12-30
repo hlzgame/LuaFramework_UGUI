@@ -62,6 +62,8 @@ function MineView:initOre( ... )
 
     self:startCreate()
 
+    -- yield return new WaitForSeconds(5);
+
 end
 
 function MineView:startCreate( ... )
@@ -112,13 +114,25 @@ function MineView:createNewMask(  )
 
 end
 
+--移动相机所在的位置
 function MineView:refreshCameraPos( )
     if self.isStartDrop == true then 
         local posX = self.mainCamera.transform.localPosition.x
-        local posY = self.mainCamera.transform.localPosition.y - 0.01 
+        local posY = self.mainCamera.transform.localPosition.y - mtMineMgr():getCameraSpeed()
         local posZ = self.mainCamera.transform.localPosition.z 
         self.mainCamera.transform.localPosition = Vector3(posX,posY,posZ);
     end
+end
+
+--检查当前矿场的状态
+--[[
+    1 玩家当前的体力
+    2 玩家与摄像机的安全间距（以后简称视野范围）
+    3 玩家的生命值
+    4 是否进入 结束状态
+]]
+function MineView:checkMineState( ... )
+  -- body
 end
 
 --清除报废的矿石和黑雾（以及生成的原矿和道具等）
